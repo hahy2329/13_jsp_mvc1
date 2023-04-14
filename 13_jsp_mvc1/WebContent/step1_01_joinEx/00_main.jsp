@@ -12,7 +12,7 @@
 		<p><a href="01_insert.jsp">회원가입</a></p>
 		<p>회원탈퇴</p>
 		<p>회원정보수정</p>
-		<p>회원정보조회</p>
+		<p><a href="07_list.jsp">회원정보조회</a></p>
 			
 	</fieldset>
 

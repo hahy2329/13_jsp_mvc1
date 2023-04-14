@@ -1,0 +1,17 @@
+# 실습을 위한 데이터 베이스 구성
+
+CREATE DATABASE JOIN_EX;
+
+USE JOIN_EX;
+
+CREATE TABLE MEMBER (
+	ID       	VARCHAR(20),
+    PASSWD   	VARCHAR(20),
+    NAME     	VARCHAR(20),
+    JOIN_DATE	TIMESTAMP
+);
+
+SELECT 
+		* 
+FROM 
+		MEMBER;
