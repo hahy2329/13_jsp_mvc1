@@ -80,7 +80,7 @@
 			
 			
 			//선처리문 쿼리완성
-			pstmt = conn.prepareStatement(sql); // INSERT INTO MEMBER VALUES(?,?,?,NOW())
+			pstmt = conn.prepareStatement(sql); 
 			pstmt.setString(1, id); // 1번째에 id를 집어넣자	INSERT INTO MEMBER VALUES(id,?,?,NOW())
 			pstmt.setString(2, passwd); // 2번째에 passwd를 집어넣자	INSERT INTO MEMBER VALUES(id,passwd,?,NOW())
 			pstmt.setString(3, name); //3번째에 name을 집어넣자		INSERT INTO MEMBER VALUES(id,passwd,name,NOW())
