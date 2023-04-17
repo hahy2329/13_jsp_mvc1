@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action = "06.updatePro.jsp" method="post">
+	<form action = "06_updatePro.jsp" method="post">
 		<fieldset>
 			<legend>회원정보 수정</legend>
 			<p>아이디 : <input type="text" name="id"></p>

@@ -41,7 +41,7 @@
 				
 				pstmt = conn.prepareStatement("DELETE FROM MEMBER WHERE ID = ?");
 				pstmt.setString(1,id);
-				pstmt.executeQuery();
+				pstmt.executeUpdate();
 				
 				
 			%>	

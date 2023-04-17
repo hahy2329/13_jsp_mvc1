@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>delete</title>
 </head>
 <body>
-	<form action="04.deletePro.jsp" method="post">
+	<form action="04_deletePro.jsp" method="post">
 		<fieldset>
 			<legend>회원탈퇴</legend>
 			<p>아이디 : <input type="text" name="id"></p>
