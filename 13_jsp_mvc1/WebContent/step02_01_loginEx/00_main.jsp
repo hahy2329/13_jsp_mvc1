@@ -20,10 +20,10 @@
 		else{
 	%>
 		<h3>Welcome! <%=memberId %></h3>
-		<p>Logout!</p>
-		<p>Modify!</p> <%--수정 --%>
-		<p>Delete!</p>
-	
+		<p><a href="05_logout.jsp">Logout!</a></p>
+		<p><a href="06_delete.jsp">Delete!</a></p>
+		<p><a href="08_update.jsp">Update!</a></p> <%--수정 --%>
+		
 	<% 		
 		}
 	%>
