@@ -114,5 +114,144 @@ public class BoardDAO {
 		return boardList;
 	}
 	
+	public BoardDTO getBoardDetail(long boardId, boolean isIncreaseReadCnt) {
+		
+		
+		BoardDTO boardDTO = new BoardDTO();
+		
+		
+		try {
+			getConnection();
+			
+			if(isIncreaseReadCnt) {
+				
+				pstmt = conn.prepareStatement("UPDATE BOARD SET READ_CNT= READ_CNT+1 WHERE BOARD_ID = ?");
+				pstmt.setLong(1, boardId);
+				pstmt.executeUpdate();
+				
+				
+			}
+			
+			
+			
+			
+			pstmt = conn.prepareStatement("SELECT * FROM BOARD WHERE BOARD_ID = ?");
+			pstmt.setLong(1, boardId);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				boardDTO.setBoardId(rs.getLong("BOARD_ID"));
+				boardDTO.setWriter(rs.getString("WRITER"));
+				boardDTO.setEmail(rs.getString("EMAIL"));
+				boardDTO.setSubject(rs.getString("SUBJECT"));
+				boardDTO.setEnrollDt(rs.getDate("ENROLL_DT"));
+				boardDTO.setReadCnt(rs.getLong("READ_CNT"));
+				boardDTO.setContent(rs.getString("CONTENT"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		
+		
+		return boardDTO;
+		
+		
+	}
+	
+	public boolean checkValidateMember(BoardDTO boardDTO) {
+		
+		boolean isValidate=false;
+		
+		try {	
+			getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM BOARD WHERE BOARD_ID=? AND PASSWORD=?");
+			pstmt.setLong(1, boardDTO.getBoardId());
+			pstmt.setString(2, boardDTO.getPassword());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isValidate = true;
+			}
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		
+		
+		return isValidate;
+		
+		
+	}//아이디체크용
+	
+	
+	public boolean updateBoard(BoardDTO boardDTO) {
+		
+		
+		System.out.println(boardDTO); // 잘 넘어왔는지 확인사살
+		boolean isUpdate = false;
+		
+		try {	
+			if(checkValidateMember(boardDTO)) {
+				
+				getConnection();
+				
+				pstmt = conn.prepareStatement("UPDATE BOARD SET SUBJECT = ?, CONTENT = ? WHERE BOARD_ID = ?");
+				pstmt.setString(1, boardDTO.getSubject());
+				pstmt.setString(2, boardDTO.getContent());
+				pstmt.setLong(3, boardDTO.getBoardId());
+				pstmt.executeUpdate();
+				isUpdate = true;
+				
+			}
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+			
+		return isUpdate;
+		
+	}
+	
+	
+	
+	
+	public boolean deleteBoard(BoardDTO boardDTO) {
+
+		boolean isDelete = false;
+		
+		try {
+			
+			if (checkValidateMember(boardDTO)) {
+				getConnection();
+				pstmt = conn.prepareStatement("DELETE FROM BOARD WHERE BOARD_ID = ?");
+				pstmt.setLong(1, boardDTO.getBoardId());
+				pstmt.executeUpdate();
+				isDelete = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		
+		return isDelete;
+		
+	}
+	
+	
 	
 }

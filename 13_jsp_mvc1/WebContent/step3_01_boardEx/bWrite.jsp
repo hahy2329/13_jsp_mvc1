@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>bWrite</title>
+<script src="../ckeditor/ckeditor.js"></script> <!-- ckeditor적재하기(내용게시판디자인된거) -->
 </head>
 <body>
 	
@@ -34,6 +35,7 @@
 				<td>내용</td>
 				<td>
 					<textarea rows="10" cols="30" name="content"></textarea>
+					<script>CKEDITOR.replace("content");</script>
 				</td>
 			</tr>				
 			

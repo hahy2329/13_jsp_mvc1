@@ -24,13 +24,13 @@
 		<%
 			ArrayList<BoardDTO> boardList =BoardDAO.getInstance().getBoardList();
 			
-		
+			int idx = 1;
 			for(BoardDTO boardDTO : boardList){
 		%>
 			
 			<tr>
-				<td><%=boardDTO.getBoardId() %></td>
-				<td><%=boardDTO.getSubject() %></td>
+				<td><%=idx %></td>
+				<td><a href="bDetail.jsp?boardId=<%=boardDTO.getBoardId()%>"><%=boardDTO.getSubject() %></a></td>
 				<td><%=boardDTO.getWriter() %></td>
 				<td><%=boardDTO.getEnrollDt() %></td>
 				<td><%=boardDTO.getReadCnt() %></td>
@@ -40,6 +40,7 @@
 		
 		
 		<% 		
+				idx++;
 			}
 		
 		
