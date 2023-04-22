@@ -56,7 +56,7 @@ public class BoardDAO {
 			getConnection();
 			
 			String sql = "INSERT INTO BOARD(WRITER, EMAIL, SUBJECT, PASSWORD, ENROLL_DT, READ_CNT, CONTENT)";
-				   sql +="VALUES(?,?,?,?,NOW(),0,?)";//BOARDId는 primary이므로 자동으로 들어가기에 위에 빼줌
+			sql +="VALUES(?,?,?,?,NOW(),0,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, boardDTO.getWriter());
@@ -64,7 +64,8 @@ public class BoardDAO {
 			pstmt.setString(3, boardDTO.getSubject());
 			pstmt.setString(4, boardDTO.getPassword());
 			pstmt.setString(5, boardDTO.getContent());
-			pstmt.executeUpdate();
+			pstmt.executeUpdate();	
+			
 			
 		}catch(Exception e) {
 			e.printStackTrace();

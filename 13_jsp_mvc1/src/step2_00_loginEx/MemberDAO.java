@@ -37,7 +37,7 @@ public class MemberDAO {
 			// DB 연결 계정
 			String user    = "root";
 			// DB 연결 비밀번호
-			String password  = "tbtur!!852";
+			String password  = "root";
 			
 			//데이터베이스 연동 
 			conn = DriverManager.getConnection(url, user, password);
@@ -71,6 +71,7 @@ public class MemberDAO {
 					pstmt.setString(1, memberDTO.getMemberId());
 					pstmt.setString(2, memberDTO.getPasswd());
 					pstmt.setString(3, memberDTO.getName());
+		
 					pstmt.executeUpdate();
 					isJoin = true;
 				}
