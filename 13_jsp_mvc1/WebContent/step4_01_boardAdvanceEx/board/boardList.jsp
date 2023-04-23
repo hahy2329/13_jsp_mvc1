@@ -72,7 +72,10 @@
 		
 		int currentPageNumber = Integer.parseInt(tempPageNum); 
 		int totalBoardCnt = BoardAdvanceDAO.getInstance().getAllBoardCnt(searchKeyword,searchWord);
+		//검색 결과 조회된 검색 수
 		int startBoardIdx = (currentPageNumber -1) * onePageViewCnt;
+		//각각 게시글의 일련번호
+		
 		ArrayList<MainBoardDTO> boardAdvanceList = BoardAdvanceDAO.getInstance().getBoardList(searchKeyword, searchWord, startBoardIdx, onePageViewCnt);
 	
 	%>
