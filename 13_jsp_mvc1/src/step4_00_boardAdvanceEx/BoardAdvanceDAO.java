@@ -279,7 +279,7 @@ public class BoardAdvanceDAO {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				mainBoardDTO.setBoardId(rs.getInt("BOARD_ID"));
+				mainBoardDTO.setBoardId(rs.getLong("BOARD_ID"));
 				mainBoardDTO.setWriter(rs.getString("WRITER"));
 				mainBoardDTO.setSubject(rs.getString("SUBJECT"));
 				mainBoardDTO.setPasswd(rs.getString("PASSWD"));

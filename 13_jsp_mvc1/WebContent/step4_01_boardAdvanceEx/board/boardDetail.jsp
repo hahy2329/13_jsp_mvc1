@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>boardDetail</title>
 </head>
-</head>
+
 <body>
 
 	<%
