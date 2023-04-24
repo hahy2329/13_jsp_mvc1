@@ -101,6 +101,8 @@
 					</select>
 				</td>
 			</tr>
+			
+			<!-- js에서 id는 파라미터로 넘기는 용도 name은 자바에서 넘기는 용도 --> 
 			<tr align="center">
 					<td>번호</td>
 					<td>제목</td>
