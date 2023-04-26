@@ -54,7 +54,10 @@
 		</table>
 		
 		<br>
+		
+		
 		<hr>
+		
 		<br>
 		
 		<h4>댓글 리스트 (<%=BoardAdvanceDAO.getInstance().getAllReplyCnt(boardId) %>)</h4>
